@@ -26,6 +26,36 @@ public class LinkedListDemo {
             temp.next = node;
         }
     }
+    
+    public Node deleteheadNode(){
+        Node temp = head;
+
+        head = temp.next;
+
+        return temp;
+    }
+
+    public Node deletePositionNode(Node head, int position){
+        if(head == null){
+            return head;
+        }
+        if(position == 0){
+            head = head.next;
+            return head;
+        }
+
+        int counter = 0;
+        Node temp = head;
+        while(temp != null){
+            if((counter + 1) == position){
+                temp.next = temp.next.next;
+                break;
+            }
+            counter++;
+            temp = temp.next;
+        }
+        return head;
+    }
 
 
     public void printList(){
